@@ -6,6 +6,7 @@ st.title("Chi Square Graph")
 colunas = st.columns(2)
 
 with colunas[0]:
+    st.header("Select parameters")
     degrees_of_freedom = st.slider(
         "Degrees of Freedom",
         min_value=0,

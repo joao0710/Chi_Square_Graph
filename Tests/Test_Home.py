@@ -1,12 +1,12 @@
 from streamlit.testing.v1 import AppTest
 from pathlib import Path
 
+from Home.app import degrees_of_freedom
+
 PATH_APP = Path(__file__).parent.parent / "Home" / "app.py"
 
 def test_app_initial_streamlit():
     """Testing if streamlit app is working properly"""
-
-    # -- Take the path app in string
     at = AppTest.from_file(str(PATH_APP))
     at.run()
 
@@ -18,3 +18,11 @@ def test_initial_elements():
     at.run()
 
     assert at.title[0].value == "Chi Square Graph"
+
+
+def test_sliders():
+    """Testing if sliders are working properly"""
+    at = AppTest.from_file(str(PATH_APP))
+    at.run()
+
+    assert at.slider[0].value == 0
